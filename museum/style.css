@@ -156,7 +156,7 @@ label {
     position: absolute;
     content: "";
     z-index: -999;
-    bottom: 0;
+    bottom: 1px;
     right: 0;
     background-image: url(assets/img/louvre_bcg.jpg);
     width: 1215px;
@@ -365,7 +365,7 @@ label {
     align-items: center;
     background-color: var(--bg-dark);
     width: calc(100% - 82px);
-    padding: 28px 41px;
+    padding: 28px 41px 21px;
 }
 
 .btn_size_cover {
@@ -445,7 +445,7 @@ label {
 .video__info {
     display: flex;
     align-items: center;
-    margin: 33px 0 0;
+    margin: 39px 0 0;
     column-gap: 115px;
 }
 
@@ -628,7 +628,7 @@ label {
 }
 
 .contacts__content {
-    padding: 75px 240px;
+    padding: 75px 240px 78px;
 }
 
 .contacts__heading {
@@ -647,7 +647,7 @@ label {
 .contacts__text {
     display: flex;
     flex-direction: column;
-    margin: 0;
+    margin: 20px 0 0;
 }
 
 .contacts__text-heading {
@@ -712,8 +712,8 @@ label {
 .footer__social {
     display: flex;
     align-items: flex-end;
-    column-gap: 24px;
-    margin-bottom: 14px;
+    column-gap: 21px;
+    margin-bottom: 10px;
 }
 
 .footer__social-link {
