@@ -11,20 +11,6 @@
     --filter-gold: invert(56%) sepia(44%) saturate(278%) hue-rotate(356deg) brightness(89%) contrast(86%);
 }
 
-@keyframes twitching {
-    0% {
-        left: 0;
-    }
-    50% {
-        left: -10px;
-        color:var(--dark-red);
-    }
-    100% {
-        left: 0;
-        transform: scale(1);
-    }
-}
-
 @font-face {
     font-family: "Roboto";
     src: url(assets/fonts/Roboto-Thin.ttf);
@@ -106,7 +92,7 @@ label {
 }
 
 .header__heading {
-    font: normal 28px Forum;
+    font: normal 28px Forum, sans-serif;
     line-height: 50px;
     letter-spacing: 5px;
     margin-left: 20px;
@@ -130,7 +116,7 @@ label {
 
 .text_elem_nav {
     position: relative;
-    font: 200 22px Roboto;
+    font: 200 22px Roboto, sans-serif;
     line-height: 50px;
     letter-spacing: 2px;
     color: var(--font-white);
@@ -139,7 +125,7 @@ label {
 }
 
 .text_elem_nav:hover {
-    animation: twitching 0.25s linear;
+    filter: var(--filter-gold);
 }
 
 .main {
@@ -175,7 +161,7 @@ label {
 }
 
 .heading {
-    font: normal 80px Forum;
+    font: normal 80px Forum, sans-serif;
     line-height: 90px;
     letter-spacing: 5px;
     text-transform: uppercase;
@@ -183,7 +169,7 @@ label {
 
 .welcome__text {
     display: inline-block;
-    font: 300 28px Roboto;
+    font: 300 28px Roboto, sans-serif;
     line-height: 33px;
     letter-spacing: 2px;
     margin: 26px 0 76px;
@@ -209,7 +195,7 @@ label {
 }
 
 .welcome__btn-text {
-    font: 200 22px Roboto;
+    font: 200 22px Roboto, sans-serif;
     font-family: Roboto;
     text-align: center;
     letter-spacing: 2px;
@@ -254,7 +240,7 @@ label {
 
 .visiting__cards-heading {
     margin: 25px 0 9px;
-    font: normal 32px Forum;
+    font: normal 32px Forum, sans-serif;
     line-height: 35px;
     letter-spacing: 5px;
     text-transform: uppercase;
@@ -272,7 +258,7 @@ label {
 }
 
 .visiting__cards-info {
-    font: 200 22px Roboto;
+    font: 200 22px Roboto, sans-serif;
     line-height: 26px;
 }
 
@@ -317,7 +303,7 @@ label {
     display: flex;
     flex-direction: column;
     row-gap: 25px;
-    font: 300 22px Roboto;
+    font: 300 22px Roboto, sans-serif;
     line-height: 38px;
     color: var(--font-white);
     max-width: 660px;
@@ -464,7 +450,7 @@ label {
 }
 
 .video__text {
-    font: 300 22px Roboto; 
+    font: 300 22px Roboto, sans-serif; 
     line-height: 38px;
     color: var(--font-black);
 }
@@ -497,14 +483,14 @@ label {
 }
 
 .tickets__info-heading {
-    font: bold 28px Roboto;
+    font: bold 28px Roboto, sans-serif;
     line-height: 33px;
     color: var(--font-white);
     margin: 0 0 50px;
 }
 
 .tickets__info-text {
-    font: 300 22px Roboto;
+    font: 300 22px Roboto, sans-serif;
     line-height: 26px;
     color: var(--font-white);
 }
@@ -555,13 +541,13 @@ label {
 
 .tickets__amount-heading {
     margin-right: 0;
-    font: bold 28px Roboto;
+    font: bold 28px Roboto, sans-serif;
     line-height: 33px;
     color: var(--font-white);
 }
 
 .tickets__amount-text {
-    font: 300 22px Roboto;
+    font: 300 22px Roboto, sans-serif;
     line-height: 26px;
     color: var(--font-white);
     margin: 11px 0 14px 25px;
@@ -580,7 +566,7 @@ label {
 }
 
 .tickets__btn-container button {
-    font: normal 32px Roboto;
+    font: normal 32px Roboto, sans-serif;
     line-height: 37px;
     color: var(--font-white);
     background-color: var(--bg-dark);
@@ -590,7 +576,7 @@ label {
 
 .tickets__btn-container input {
     margin: 10px 36px 10px 37px;
-    font: 300 22px Roboto;
+    font: 300 22px Roboto, sans-serif;
     line-height: 26px;  
     max-width: 10px;
     background-color: var(--bg-dark);
@@ -605,7 +591,7 @@ label {
 .tickets__cost {
     margin: 50px 0 0;
     text-align: right;
-    font: bold 28px Roboto;
+    font: bold 28px Roboto, sans-serif;
     line-height: 33px;
     letter-spacing: 1.65px;
     color: var(--font-white);
@@ -621,7 +607,7 @@ label {
 }
 
 .tickets__btn-text {
-    font: 300 22px Roboto;
+    font: 300 22px Roboto, sans-serif;
     line-height: 26px;
     letter-spacing: 2px;
 }
@@ -659,7 +645,7 @@ label {
 
 .contacts__text-heading {
     margin: 0 0 36px;
-    font: 500 28px Roboto;
+    font: 500 28px Roboto, sans-serif;
     line-height: 33px;
     color: var(--font-black);
 }
@@ -667,7 +653,7 @@ label {
 .contacts__text-info {
     width: max-content;
     margin: 0;
-    font: 300 22px Roboto;
+    font: 300 22px Roboto, sans-serif;
     line-height: 26px;
     color: var(--font-black);
 }
@@ -698,7 +684,7 @@ label {
 }
 
 .footer__heading {
-    font: normal 28px Forum;
+    font: normal 28px Forum, sans-serif;
     line-height: 50px;
     letter-spacing: 5px;
     margin-left: 20px;
