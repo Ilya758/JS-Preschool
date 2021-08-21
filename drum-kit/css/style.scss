@@ -197,6 +197,13 @@
         width: 90px;
         @include transition(0.25s, linear);
         cursor: pointer;
+        user-select: none;
+
+        &.item_state_active {
+            box-shadow: 0 0 10px 2px #ffc600;
+            border: 2px solid #ffc60094;
+            transform: scale(1.1);
+        }
     }
 
     &__heading {

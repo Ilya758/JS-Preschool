@@ -166,6 +166,13 @@
   width: 90px;
   transition: 0.25s linear;
   cursor: pointer;
+  user-select: none;
+}
+
+.keys__item.item_state_active {
+  box-shadow: 0 0 10px 2px #ffc600;
+  border: 2px solid #ffc60094;
+  transform: scale(1.1);
 }
 
 .keys__heading {
