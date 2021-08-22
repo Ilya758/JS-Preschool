@@ -113,7 +113,6 @@
     
     &_theme_dark {
         background: url(../assets/img/background_theme-dark.jpg) no-repeat 0 0/cover;
-        //animation: wrapperAppear 1s cubic-bezier(1, 0.13, 0.15, 0.99);
     }
 }
 
@@ -149,10 +148,6 @@
         @include transition(0.25s, linear);
         user-select: none;
 
-        &:hover {
-            color: black;
-            text-shadow: 0 1px 2px black;
-        }
     }
 
     &__tooltip {
@@ -275,7 +270,6 @@
         text-shadow: 0 1px 2px white;
         color: var(--text-white);
     }
-
 }
 
 .main {
@@ -349,5 +343,4 @@
             color: var(--text-orange);
         }
     }
-
 }

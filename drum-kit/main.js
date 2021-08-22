@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    const keysList = document.querySelector('.keys__list')
+    const keysList = document.querySelector('.keys__list');
 
     keysList.addEventListener('click', (event) => {
 
@@ -31,27 +31,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     slider.addEventListener('click', () => {
         const thumb = document.querySelector('.header__thumb');
-        const mSlider = slider.getBoundingClientRect();
         const mThumb = thumb.getBoundingClientRect();
-        const item = document.querySelectorAll('.keys__item');
-        item.forEach((i) => i.classList.toggle('item_theme_dark'));
+        document.querySelectorAll('.keys__item').forEach((i) => i.classList.toggle('item_theme_dark'));
         thumb.classList.toggle('header__thumb_state_active');
         slider.classList.toggle('header__slider_state_active');
         document.querySelector('.wrapper').classList.toggle('wrapper_theme_dark');
         document.querySelector('.header__tooltip').classList.toggle('tooltip_theme_dark');
+
         if (+getComputedStyle(thumb).left.replace('px', '') > 1) {
             thumb.classList.add('header__thumb_state_reverse-move');
             thumb.style.left = '1px';
             setTimeout(() => {
                 thumb.classList.remove('header__thumb_state_reverse-move');
             }, 510);
-        }
-        else {
+        } else {
             thumb.classList.add('header__thumb_state_move');
-            thumb.style.left = mSlider.width - mThumb.width - slider.clientLeft * 2 - 1 + 'px';
+            thumb.style.left = slider.getBoundingClientRect().width - mThumb.width - slider.clientLeft * 2 - 1 + 'px';
             setTimeout(() => {
                 thumb.classList.remove('header__thumb_state_move');
             }, 510)
         }
+
     })
 });

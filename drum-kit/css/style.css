@@ -113,11 +113,6 @@
   user-select: none;
 }
 
-.header__heading:hover {
-  color: black;
-  text-shadow: 0 1px 2px black;
-}
-
 .header__tooltip {
   font: 40px Roboto;
   color: var(--text-orange);
