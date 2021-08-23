@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const audio = document.querySelector(`audio[data-key=${pressedKey}]`);
             playSound(audio);
         }
-    })
+    });
 
     const slider = document.querySelector('.header__slider');
 
@@ -52,5 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 510)
         }
 
-    })
+    });
+
+    console.log(`Score: 30 / 30\n - реализован обязательный функционал нажатия по клавишам с последующим воспроизведением звуков (10);\n - реализован обязательный дополнительный функционал по клику на кнопки c последующим воспроизведением звуков (10);\n - реализовано переключение темы со светлой на тёмную (10).\n - планируется в будущем реализация адаптивного перестроения (responsive)`)
 });
