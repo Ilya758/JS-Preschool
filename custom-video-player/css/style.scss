@@ -1,14 +1,14 @@
 :root {
-    --bg-dark: #151719;
-    --bg-blue: #24809E;
-    --dark-red: #710707;
-    --font-gold: #9d8665;
-    --font-white: #ffffff;
-    --font-black: #000000;
-    --font-gold: #9D8665;
-    --font1: 80px;
-    --font2: 32px;
-    --filter-gold: invert(56%) sepia(44%) saturate(278%) hue-rotate(356deg) brightness(89%) contrast(86%);
+  --bg-dark: #151719;
+  --bg-blue: #24809E;
+  --dark-red: #710707;
+  --font-gold: #9d8665;
+  --font-white: #ffffff;
+  --font-black: #000000;
+  --font-gold: #9D8665;
+  --font1: 80px;
+  --font2: 32px;
+  --filter-gold: invert(56%) sepia(44%) saturate(278%) hue-rotate(356deg) brightness(89%) contrast(86%);
 }
 
 @font-face {
@@ -35,12 +35,6 @@
   font-weight: 400;
 }
 
-html {
-    background: url(../assets/img/background.jpg) no-repeat 0 0/cover;
-    width: 100%;
-    height: 100%;
-}
-
 @mixin flex($d, $c, $a) {
   display: flex;
   flex-direction: $d;
@@ -54,12 +48,26 @@ html {
 
 @mixin header-text() {
   font: 40px Roboto;
-  color: var(--text-orange);
 }
 
 * {
   margin: 0;
   padding: 0;
+}
+
+*:focus-visible {
+  outline: none;
+}
+
+.wrapper {
+  background: url(../assets/img/background.jpg) no-repeat 0 0/cover;
+  min-height: 100vh;
+  @include flex(column, space-between, stretch);
+  transition: 1s cubic-bezier(1, 0.13, 0.15, 0.99);
+}
+
+.wrapper-content {
+  flex-grow: 1;
 }
 
 .container {
@@ -83,7 +91,7 @@ html {
 
   &__heading {
       @include header-text();
-      text-shadow: 0 1px 3px var(--text-orange);
+      text-shadow: 0 1px 3px #ffc600;
       @include transition(0.25s, linear);
       user-select: none;
   }
@@ -96,16 +104,16 @@ html {
       width: 40px;
       height: 40px;
       border: 2px solid #ffc6006e;
-      box-shadow: 0 0 5px 1px var(--text-orange);
+      box-shadow: 0 0 5px 1px #ffc600;
       border-radius: 50%;
-      text-shadow: 0 1px 3px var(--text-orange);
+      text-shadow: 0 1px 3px #ffc600;
       @include transition(0.25s, linear);
 
       &:hover {
-          color: black;
+          color: #ffc600;
           text-shadow: 0 1px 2px black;
-          box-shadow: 0 0 5px 1px var(--text-black);
-          border-color: var(--text-black);
+          box-shadow: 0 0 5px 1px;
+          border-color: black;
           cursor: help;
           
           & > .header__tooltip-text {
@@ -119,12 +127,12 @@ html {
       &-text {
           z-index: -999;
           @include header-text();
+          line-height: 30px;
           position: absolute;
           animation: appear reverse 0.5s linear;
           display: none;
           opacity: 0;
-          max-width: 200px;
-          max-height: 150px;
+          max-width: 400px;
           background-color: rgba(0,0,0,0.7);
           border: 2px solid transparent;
           right: 0;
@@ -145,7 +153,7 @@ html {
 
   &_color_white {
       text-shadow: 0 1px 2px white;
-      color: var(--text-white);
+      color: white;
   }
 }
 
@@ -176,7 +184,7 @@ video::-webkit-media-controls-panel
 
 .video__content {
   flex-direction: column;
-  padding: 90px 240px 75px;
+  padding: 240px 240px 75px;
 }
 
 .video__pic {

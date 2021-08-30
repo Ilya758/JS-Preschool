@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (video.dataset.state === 'pre-pause') {
                 video.play();
-                video.dataset.state = 'pre-play'
+                video.dataset.state = 'pre-play';
             } else {
 
                 if (video.currentTime.toFixed(2) === video.duration.toFixed(2)) {
@@ -105,14 +105,14 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
 
                 if (video.currentTime.toFixed(2) === video.duration.toFixed(2)) {
-                    video.dataset.state = 'pre-play'
+                    video.dataset.state = 'pre-play';
                 } else {
                     video.dataset.state = 'pre-pause';
                 }
             }
         }
 
-        video.addEventListener('timeupdate', (event) => {
+        video.addEventListener('timeupdate', () => {
             fillTheGradient(rewinder);
         })
     }
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function rewindVideo(elem) {
-        const duration = video.duration
+        const duration = video.duration;
         video.currentTime = elem.value * duration / 100;
     }
 
@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
             video.classList.toggle('video_animate_toTop');
             setTimeout(() => {
                 video.classList.toggle('video_animate_toTop');
-                video.classList.toggle('video_state_hidden')
+                video.classList.toggle('video_state_hidden');
                 video.setAttribute('src', `assets/video/video${count}.mp4`);
             }, 490);
 
@@ -196,7 +196,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 video.classList.toggle('video_state_hidden');
                 video.classList.remove('video_animate_appear');
             }, 1010);
+
+            video.dataset.state = 'pre-pause';
         }
     }
-
 });
