@@ -200,4 +200,6 @@ document.addEventListener('DOMContentLoaded', () => {
             video.dataset.state = 'pre-pause';
         }
     }
+
+    console.log(`Score: 30 / 30\n - Реализован обязательный функционал по клику на кнопки-элементы видео - 10\n - Реализован обязательный дополнительный функционал по нажатию на кнопки клавиатуры (Space, KeyF, ArrowLeft, ArrowRight, KeyM) - 10\n - Реализован лёгкий псевдослайдер(переключатель видео) - 10 `);
 });
