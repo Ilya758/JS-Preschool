@@ -16,7 +16,60 @@
 </head>
 
 <body>
+    <div class="wrapper-content">
+        <header class="header">
+            <div class="container">
+                <div class="header__content content">
+                    <h1 class="header__heading">
+                        Custom Video Player
+                    </h1>
+                    <div class="header__tooltip"><span>?</span>
+                        <div class="header__tooltip-text text_size_m">
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <section class="video" id="video">
+                <div class="container">
+                    <div class="content video__content">
+                        <div class="video-container">
+                            <div class="video__pic">
+                                <video src="assets/video/video1.mp4" width="1440px" data-state="pre-pause"
+                                    data-focus="disabled">
+                                    <source src="assets/video/waterfall1.mp4">
+                                </video>
+                                <button class="video__btn-play" type="button"></button>
+                            </div>
+                            <div class="video__controls">
+                                <button class="btn_size_cover video__controls-prev"></button>
+                                <button class="btn_size_cover video__controls-play"></button>
+                                <button class="btn_size_cover video__controls-next"></button>
+                                <input type="range" value="0" step="1" min="0" max="100"
+                                    class="video__controls-range range_elem_time">
+                                <button class="btn_size_cover video__controls-mute" data-state="no-mute"></button>
+                                <input type="range" value="100" step="1" min="0" max="100"
+                                    class="video__controls-range range_elem_sound">
+                                <button class="btn_size_cover video__controls-fullscreen" data-full="disabled"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content content">
+                <div class="footer__copy footer__text text_color_white">2021 &copy; All rights reserved</div>
+                <a href="https://github.com/Ilya758" class="footer__author footer__text text_color_white">Link to
+                    Github
+                </a>
+            </div>
+        </div>
+    </footer>
     <script src="main.js"></script>
 </body>
 

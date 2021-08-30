@@ -25,16 +25,9 @@
 
 @font-face {
   font-family: "Roboto";
-  src: url(assets/fonts/Roboto-Medium.ttf);
-  font-weight: 500;
-}  
-
-@font-face {
-  font-family: "Roboto";
   src: url(assets/fonts/Roboto-Bold.ttf);
   font-weight: 700;
 }  
-
 
 @font-face {
   font-family: "Forum";
@@ -46,4 +39,349 @@ html {
     background: url(../assets/img/background.jpg) no-repeat 0 0/cover;
     width: 100%;
     height: 100%;
+}
+
+@mixin flex($d, $c, $a) {
+  display: flex;
+  flex-direction: $d;
+  justify-content: $c;
+  align-items: $a;
+}
+
+@mixin transition($time, $way) {
+  transition: $time $way;
+}
+
+@mixin header-text() {
+  font: 40px Roboto;
+  color: var(--text-orange);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.content {
+  @include flex(row, space-between, center);
+  position: relative;
+}
+
+
+.header {
+  display: block;
+
+  &__content {
+      margin: 50px 50px 0;
+  }
+
+  &__heading {
+      @include header-text();
+      text-shadow: 0 1px 3px var(--text-orange);
+      @include transition(0.25s, linear);
+      user-select: none;
+  }
+
+  &__tooltip {
+      @include header-text();
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      border: 2px solid #ffc6006e;
+      box-shadow: 0 0 5px 1px var(--text-orange);
+      border-radius: 50%;
+      text-shadow: 0 1px 3px var(--text-orange);
+      @include transition(0.25s, linear);
+
+      &:hover {
+          color: black;
+          text-shadow: 0 1px 2px black;
+          box-shadow: 0 0 5px 1px var(--text-black);
+          border-color: var(--text-black);
+          cursor: help;
+          
+          & > .header__tooltip-text {
+              animation: appear 0.5s linear;
+              display: block;
+              opacity: 1;
+              z-index: 999;
+          }
+      }
+
+      &-text {
+          z-index: -999;
+          @include header-text();
+          position: absolute;
+          animation: appear reverse 0.5s linear;
+          display: none;
+          opacity: 0;
+          max-width: 200px;
+          max-height: 150px;
+          background-color: rgba(0,0,0,0.7);
+          border: 2px solid transparent;
+          right: 0;
+          top: 60px;
+          text-align: center;
+          padding: 10px;
+          border-radius: 30px;
+          @include transition(0.25s, linear)
+      }
+  }
+}
+
+.text {
+
+  &_size_m {
+      font-size: 20px;
+  }
+
+  &_color_white {
+      text-shadow: 0 1px 2px white;
+      color: var(--text-white);
+  }
+}
+
+.main {
+  display: block;
+
+  &-text {
+      font: 32px Roboto;
+  }
+}
+
+video {
+  max-height: 630px;
+  height: 630px;
+  object-fit: cover;
+  position: relative;
+}
+
+.video {
+  display: block;
+}
+
+video::-webkit-media-controls-panel
+{
+     display: none !important;
+     opacity: 0 !important;
+}
+
+.video__content {
+  flex-direction: column;
+  padding: 90px 240px 75px;
+}
+
+.video__pic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1440px;
+  width: 100%;
+  height: 630px;
+
+  &:hover > .video__btn-play {
+    opacity: 1;
+  }
+}
+
+.video__btn-play {
+  position: absolute;
+  background: url(../assets/svg/icons/btn_play.svg);
+  width: 220px;
+  height: 220px;
+  cursor: pointer;
+  transition: 0.25s linear;
+  border: none;
+  opacity: 0;
+}
+
+.video__btn-play:hover {
+  filter: var(--filter-gold);
+}
+
+.video__controls {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-dark);
+  max-width: 1440px;
+  padding: 28px 41px 21px;
+}
+
+.btn_size_cover {
+  background-size: cover;
+  border: none;
+  margin: 0;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.btn_size_cover:hover {
+  filter: var(--filter-gold);
+}
+
+.video__controls-prev {
+  background: url(../assets/svg/icons/btn_prev.svg);
+  width: 27px;
+  height: 30px;
+}
+
+.video__controls-play {
+  margin: 0 41px;
+  background: url(../assets/svg/icons/btn_play_small.svg);
+  width: 23px;
+  height: 30px;
+}
+
+.video__controls-next {
+  background: url(../assets/svg/icons/btn_next.svg);
+  width: 27px;
+  height: 30px;
+}
+
+.video__controls-range {
+  -webkit-appearance: none;
+  background: linear-gradient(to right, var(--bg-blue) 0, var(--bg-blue) 100%, #c4c4c4 0%, #c4c4c4 100%);
+  height: 8px;
+}
+
+.video__controls-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--font-white);
+  cursor: w-resize;
+  transition: 0.25s linear;
+}
+
+.video__controls-range:hover::-webkit-slider-thumb {
+  transform: scale(1.3);
+  background-color: var(--font-gold);
+}
+
+.range_elem_time {
+  width: 820px;
+  margin: 0 41px;
+  background: linear-gradient(to right, var(--bg-blue) 0, var(--bg-blue) 0%, #c4c4c4 0%, #c4c4c4 100%);
+}
+
+.range_elem_sound {
+  width: 155px;
+  margin: 0 48px 0 20px;
+}
+
+.video__controls-mute {
+  background: url(../assets/svg/icons/btn_sound.svg);
+  width: 38px;
+  height: 30px;
+}
+
+.video__controls-fullscreen {
+  background: url(../assets/svg/icons/btn_fullscreen.svg);
+  width: 36px;
+  height: 36px;
+
+  &-close {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    background: url(img/iconmonstr-fullscreen-3.svg) no-repeat 0 0/cover;
+    width: 50px;
+    height: 50px;
+    //mask-repeat: no-repeat;
+  }
+}
+
+.active {
+  display: block;
+}
+
+@keyframes toTop {
+  0%{
+    bottom: 0;
+  }
+  50% {
+    bottom: 150px;
+    opacity: 0.5;
+  }
+  100% {
+    bottom: 300px;
+    opacity: 0;
+  }
+}
+
+@keyframes appear {
+  0%{
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.video_animate_toTop {
+  animation: toTop 0.5s linear;
+}
+
+.video_animate_appear {
+  animation: appear 0.5s linear;
+}
+
+.video_state_hidden {
+  opacity: 0;
+}
+
+.video_state_visible {
+  opacity: 1;
+}
+
+.video__info {
+  display: flex;
+  align-items: center;
+  margin: 39px 0 0;
+  column-gap: 115px;
+}
+
+.video__heading {
+  width: 100%;
+  max-width: 606px;
+  text-transform: uppercase;
+  color: var(--font-gold);
+}
+
+.video__text {
+  font: 300 22px Roboto, sans-serif; 
+  line-height: 38px;
+  color: var(--font-black);
+}
+
+.footer {
+  display: block;
+  
+  &__content {
+      margin: 0 50px 20px;
+      justify-content: space-between;
+  }
+
+  &__text {
+      font: 40px Roboto;
+      text-decoration: none;
+  }
+
+  &__author {
+      @include transition(0.25s, linear);
+
+      &:hover {
+          color: var(--text-orange);
+      }
+  }
 }
