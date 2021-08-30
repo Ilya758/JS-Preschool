@@ -1,0 +1,49 @@
+:root {
+    --bg-dark: #151719;
+    --bg-blue: #24809E;
+    --dark-red: #710707;
+    --font-gold: #9d8665;
+    --font-white: #ffffff;
+    --font-black: #000000;
+    --font-gold: #9D8665;
+    --font1: 80px;
+    --font2: 32px;
+    --filter-gold: invert(56%) sepia(44%) saturate(278%) hue-rotate(356deg) brightness(89%) contrast(86%);
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url(assets/fonts/Roboto-Thin.ttf);
+  font-weight: 100;
+}  
+
+@font-face {
+  font-family: "Roboto";
+  src: url(assets/fonts/Roboto-Light.ttf);
+  font-weight: 300;
+}  
+
+@font-face {
+  font-family: "Roboto";
+  src: url(assets/fonts/Roboto-Medium.ttf);
+  font-weight: 500;
+}  
+
+@font-face {
+  font-family: "Roboto";
+  src: url(assets/fonts/Roboto-Bold.ttf);
+  font-weight: 700;
+}  
+
+
+@font-face {
+  font-family: "Forum";
+  src: url(assets/fonts/Forum-Regular.ttf);
+  font-weight: 400;
+}
+
+html {
+    background: url(../assets/img/background.jpg) no-repeat 0 0/cover;
+    width: 100%;
+    height: 100%;
+}
