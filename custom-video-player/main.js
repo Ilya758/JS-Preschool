@@ -17,7 +17,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('click', (event) => {
         playAndStop(event);
-    })
+    });
+
+    document.addEventListener('keydown', (event) => keydownHandler(event));
+
+    function keydownHandler(event) {
+
+        if (video.dataset.focus === 'active' && event.keyCode === 32) {
+            playAndStop(event);
+        }
+
+        if (event.keyCode === 77) {
+            setMute();
+        }
+
+        if (event.keyCode === 37) {
+            video.playbackRate -= 0.25;
+        }
+
+        if (event.keyCode === 39) {
+            video.playbackRate += 0.25;
+        }
+
+        if (event.keyCode === 70) {
+
+            if (fullscreen.dataset.full === 'active') {
+                document.exitFullscreen();
+            } else {
+                video.requestFullscreen();
+            }
+        }
+
+    }
 
     volume.addEventListener('input', () => {
         changeVolume(volume);
