@@ -17,7 +17,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('click', (event) => {
         playAndStop(event);
-    });
+        enableFullscreenByButtonClick(event);
+        toggleVideo(event);
+
+        if ((event.target !== primaryPlayBtn && event.target !== video && event.target !== secondaryPlayButton && event.target !== videoControlsPanel)) {
+            video.dataset.focus = 'disabled';
+        }
+
+    })
 
     document.addEventListener('keydown', (event) => keydownHandler(event));
 
@@ -49,6 +56,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
     }
+
+    document.addEventListener('fullscreenchange', (event) => {
+        let dataChange = fullscreen.dataset.full;
+        fullscreen.dataset.full = 'active';
+        dataChange === 'active' ? fullscreen.dataset.full = 'disabled' : fullscreen.dataset.full === 'active';
+
+        enableFullscreenByButtonClick(event);
+    })
 
     volume.addEventListener('input', () => {
         changeVolume(volume);
@@ -97,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        video.addEventListener('timeupdate', () => {
+        video.addEventListener('timeupdate', (event) => {
             fillTheGradient(rewinder);
         })
     }
@@ -134,6 +149,54 @@ document.addEventListener('DOMContentLoaded', () => {
     function rewindVideo(elem) {
         const duration = video.duration
         video.currentTime = elem.value * duration / 100;
+    }
+
+    function enableFullscreenByButtonClick(event) {
+
+        if (event.target === fullscreen) {
+            video.requestFullscreen();
+        }
+    }
+
+    function toggleVideo(event) {
+        const target = event.target;
+
+        if (target === nextBtn || target === prevBtn) {
+
+            if (target === nextBtn) {
+
+                if (count === 3) {
+                    count = 1;
+                } else {
+                    ++count;
+                }
+            }
+
+            if (target === prevBtn) {
+
+                if (count === 1) {
+                    count = 3;
+                } else {
+                    --count;
+                }
+            }
+
+            video.classList.toggle('video_animate_toTop');
+            setTimeout(() => {
+                video.classList.toggle('video_animate_toTop');
+                video.classList.toggle('video_state_hidden')
+                video.setAttribute('src', `assets/video/video${count}.mp4`);
+            }, 490);
+
+            setTimeout(() => {
+                video.classList.add('video_animate_appear');
+                fillTheGradient(rewinder, true);
+            }, 510);
+            setTimeout(() => {
+                video.classList.toggle('video_state_hidden');
+                video.classList.remove('video_animate_appear');
+            }, 1010);
+        }
     }
 
 });
